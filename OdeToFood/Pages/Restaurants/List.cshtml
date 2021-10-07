@@ -34,6 +34,12 @@
             <td>
                 @restaurant.Cuisine
             </td>
+            <td>
+                <a class="btn btn-lg" asp-page="./Detail" asp-route-restaurantId="@restaurant.Id">Detail
+                    <i class="btn-secondary">
+                    </i>
+                </a>
+            </td>
         </tr>
     }
 </table>
