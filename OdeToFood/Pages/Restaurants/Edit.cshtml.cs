@@ -10,6 +10,7 @@ namespace OdeToFood.Pages.Restaurants
     public class EditModel : PageModel
     {
         private readonly IRestaurantData restaurantData;
+        [BindProperty]
         public Restaurant Restaurant { get; set; }
         public IEnumerable<SelectListItem> Cuisines { get; set; }
         private readonly IHtmlHelper htmlHelper;
@@ -30,6 +31,12 @@ namespace OdeToFood.Pages.Restaurants
                 return RedirectToPage("./NotFound");
             }
             return Page();
+        }
+        public ActionResult OnPost(){
+            Restaurant = restaurantData.Update(Restaurant);
+            restaurantData.Commit();
+            return Page();
+            
         }
     }
 }
