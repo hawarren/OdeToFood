@@ -28,9 +28,10 @@ namespace OdeToFood.Pages.Restaurants
             {
                 Restaurant = restaurantData.GetById(restaurantId.Value);
             }
-            else{
+            else
+            {
                 Restaurant = new Restaurant();
-                
+
             }
             if (Restaurant == null)
             {
@@ -38,17 +39,26 @@ namespace OdeToFood.Pages.Restaurants
             }
             return Page();
         }
-        public ActionResult OnPost(){
-            if (ModelState.IsValid)
+        public ActionResult OnPost()
+        {
+            if (!ModelState.IsValid)
             {
-                restaurantData.Update(Restaurant);
-                restaurantData.Commit();
-                return RedirectToPage("./Detail", new {restaurantId = Restaurant.Id});
+                Cuisines = htmlHelper.GetEnumSelectList<CuisineType>();
+                return Page();
 
             }
+            if (Restaurant.Id > 0)
+            {
+                restaurantData.Update(Restaurant);
 
-            Cuisines = htmlHelper.GetEnumSelectList<CuisineType>();            
-            return Page();            
+            }
+            else
+            {
+                restaurantData.Add(Restaurant);
+            }
+
+            restaurantData.Commit();
+            return RedirectToPage("./Detail", new { restaurantId = Restaurant.Id });
         }
     }
 }
