@@ -47,17 +47,21 @@ namespace OdeToFood.Pages.Restaurants
                 return Page();
 
             }
+            TempData["Message"] = "Restaurant ";
             if (Restaurant.Id > 0)
             {
                 restaurantData.Update(Restaurant);
+                TempData["Message"] += "Updated!";
 
             }
             else
             {
                 restaurantData.Add(Restaurant);
+                TempData["Message"] += "saved!";
             }
 
             restaurantData.Commit();
+            
             return RedirectToPage("./Detail", new { restaurantId = Restaurant.Id });
         }
     }
