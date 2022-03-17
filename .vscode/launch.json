@@ -9,7 +9,7 @@
             "name": ".NET Core Launch (web)",
             "type": "coreclr",
             "request": "launch",
-            "preLaunchTask": "build",
+            "preLaunchTask": "watch",
             "program": "${workspaceFolder}/OdeToFood/bin/Debug/netcoreapp3.1/OdeToFood.dll",
             "args": [],
             "cwd": "${workspaceFolder}/OdeToFood",
