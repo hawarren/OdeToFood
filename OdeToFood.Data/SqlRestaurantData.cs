@@ -31,10 +31,9 @@ namespace OdeToFood.Data
         return restaurant;
     }
 
-    public Restaurant GetById(int id)
+    public Restaurant GetById(int id)    
     {
         return db.Restaurants.Find(id);
-
     }
 
     public IEnumerable<Restaurant> GetRestaurantsByName(string name)
