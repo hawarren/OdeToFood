@@ -2,34 +2,28 @@
 @model Restaurant
 
 <div class="card card-group">
-    <div class="card-header">
+    <div class="card-body">
         <h3>@Model.Name</h3>
     </div>
-    <div class="card-body">
+    <div class="card-text">
         <span>Location: @Model.Location</span>
         <span>Cuisine: @Model.Cuisine</span>
     </div>
     <div class="card-footer">
-        <a class="btn btn-lg"
+        <a class="card-link"
             asp-page="./Detail"
             asp-route-restaurantId="@Model.Id">
-                <i class="glyphicon glyphicon-zoomin"></i>
+                <i class="glyphicon glyphicon-zoom-in"></i>
         </a>
-        <a class="btn btn-dark"
+   <a class="card-link"
             asp-page="./Edit"
             asp-route-restaurantId="@Model.Id">
-                <i class="glyphicon glyphicon-zoomin"></i>
+                <i class="glyphicon glyphicon-edit"></i>
         </a>
-        <a class="btn btn-danger"
+        <a class="card-link"
             asp-page="./Delete"
             asp-route-restaurantId="@Model.Id">
-                <i class="glyphicon glyphicon-zoomin"></i>
+                <i class="glyphicon glyphicon-erase"></i>
         </a>
     </div>
-
-
-
-
-
-
 </div>
