@@ -1,12 +1,15 @@
 @using OdeToFood.Core
 @model Restaurant
 
-<div class="card card-group">
-    <div class="card-body">
+<div class="card-group">
+    <div class="card border-info">
+        
+    <div class="card-Title">
         <h3>@Model.Name</h3>
     </div>
     <div class="card-text">
-        <span>Location: @Model.Location</span>
+        <span>Location: @Model.Location</span>        
+    </div><div class="card-text">        
         <span>Cuisine: @Model.Cuisine</span>
     </div>
     <div class="card-footer">
@@ -15,7 +18,7 @@
             asp-route-restaurantId="@Model.Id">
                 <i class="glyphicon glyphicon-zoom-in"></i>
         </a>
-   <a class="card-link"
+            <a class="card-link"
             asp-page="./Edit"
             asp-route-restaurantId="@Model.Id">
                 <i class="glyphicon glyphicon-edit"></i>
@@ -26,4 +29,5 @@
                 <i class="glyphicon glyphicon-erase"></i>
         </a>
     </div>
+    <div>
 </div>
