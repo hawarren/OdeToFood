@@ -1,0 +1,2 @@
+//Scaffold  new empty view
+dotnet-aspnet-codegenerator view Default Empty -outDir ./Pages/Shared/Components/RestaurantCount/
