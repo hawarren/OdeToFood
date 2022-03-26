@@ -1,6 +1,8 @@
 using System;
 using Microsoft.AspNetCore.Mvc;
 using OdeToFood.Data;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace OdeToFood.ViewComponents
 {
@@ -15,7 +17,8 @@ namespace OdeToFood.ViewComponents
 
         public IViewComponentResult Invoke()
         {
-            var count = restaurantData.GetCountOfRestaurant();
+            //var count = restaurantData.GetCountOfRestaurant();
+            var count = restaurantData.GetRestaurantsByName("").ToList();
             return View(count);
         }
     }
