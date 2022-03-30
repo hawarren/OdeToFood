@@ -16,3 +16,6 @@ dotnet-aspnet-codegenerator razorpage ClientRestaurants Empty -outDir ./Pages/Re
 
 //Scaffold CRUD api
 dotnet-aspnet-codegenerator controller -api -name RestaurantsController --model OdeToFood.Core.Restaurant --dataContext OdeToFood.Data.OdeToFoodDbContext
+
+
+//datatables.net

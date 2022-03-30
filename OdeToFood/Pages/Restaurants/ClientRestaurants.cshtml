@@ -1,27 +1,41 @@
 @page
 @model OdeToFood.Pages.Restaurants.ClientRestaurantsModel
 @{
-   ViewData["Title"] = "ClientRestaurants";
+    ViewData["Title"] = "ClientRestaurants";
 }
 
 <!DOCTYPE html>
 
 <html>
+
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>ClientRestaurants</title>
 </head>
+
 <body>
 </body>
 @section Scripts {
-    <script>
-$(function () {
-    $.ajax("/api/restaurants", 
-        {method: "get"})
-    .then(function (response) {
-        console.dir(response);
+<environment include="Development">
+
+</environment>
+<environment exclude="Development">
+
+    <link rel="stylesheet" type="text/css"
+        href="https://cdn.datatables.net/v/bs4/dt-1.11.5/af-2.3.7/b-2.2.2/datatables.min.css" />
+
+    <script type="text/javascript"
+        src="https://cdn.datatables.net/v/bs4/dt-1.11.5/af-2.3.7/b-2.2.2/datatables.min.js"></script>
+</environment>
+<script>
+    $(function () {
+        $.ajax("/api/restaurants",
+            { method: "get" })
+            .then(function (response) {
+                console.dir(response);
+            });
     });
-});
-    </script>
+</script>
 }
+
 </html>
