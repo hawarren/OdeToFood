@@ -1,0 +1,9 @@
+{
+  "name": "odetofood",
+  "version": "1.0.0",
+  "dependencies": {
+    "datatables.net-autofill-bs4": "^2.3.9",
+    "datatables.net-bs4": "^1.11.5",
+    "datatables.net-buttons-bs4": "^2.2.2"
+  }
+}

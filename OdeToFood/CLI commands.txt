@@ -19,3 +19,9 @@ dotnet-aspnet-codegenerator controller -api -name RestaurantsController --model 
 
 
 //datatables.net
+
+// add package.json file
+ npm init
+
+ //certificate error
+ npm config set strict-ssl false
