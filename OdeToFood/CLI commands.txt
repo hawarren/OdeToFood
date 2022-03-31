@@ -25,3 +25,6 @@ dotnet-aspnet-codegenerator controller -api -name RestaurantsController --model 
 
  //certificate error
  npm config set strict-ssl false
+
+//add nuget package to automatically serve node modules
+ OdeToCode.UseNodeModules

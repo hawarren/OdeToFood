@@ -11,7 +11,6 @@ using Microsoft.Extensions.Hosting;
 using OdeToFood.Data;
 using Microsoft.EntityFrameworkCore;
 
-
 namespace OdeToFood
 {
     public class Startup
@@ -56,6 +55,9 @@ namespace OdeToFood
             app.UseRouting();
 
             app.UseAuthorization();
+            app.UseNodeModules(maxAge: TimeSpan.FromSeconds(600));
+            
+            app.UseCookiePolicy();
 
             app.UseEndpoints(endpoints =>
             {
