@@ -14,6 +14,9 @@
 </head>
 
 <body>
+    <table class="table" id="restaurants">
+
+    </table>
 </body>
 @section Scripts {
 <environment include="Development">
@@ -31,11 +34,20 @@
         src="https://cdn.datatables.net/v/bs4/dt-1.11.5/af-2.3.7/b-2.2.2/datatables.min.js"></script>
 </environment>
 <script>
+    //todo serialize cuisinetype and use it for data table
+    var cuisines = ["Unknown", "Mexican", "Italian", "Indian" ]
     $(function () {
         $.ajax("/api/restaurants",
             { method: "get" })
             .then(function (response) {
-                console.dir(response);
+                $('#restaurants').dataTable({
+                    data: response,
+                    columns: [
+                    {"data": "name"},
+                    {"data": "location"},
+                    {"data": "cuisine", "render": (data) => cuisines[data]}
+                    ]
+                });
             });
     });
 </script>
