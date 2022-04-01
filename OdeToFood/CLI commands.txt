@@ -28,3 +28,13 @@ dotnet-aspnet-codegenerator controller -api -name RestaurantsController --model 
 
 //add nuget package to automatically serve node modules
  OdeToCode.UseNodeModules
+
+ //run from project folder
+ dotnet run
+
+ //todo figure out how to use watch in launch.json
+ 
+ //resolve "cannot bind to port" error
+ //find then kill pids that are using that port
+ lsof -i:[Portnumber]
+ kill -9 [PID]
