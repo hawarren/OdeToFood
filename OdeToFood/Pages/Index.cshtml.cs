@@ -13,14 +13,19 @@ namespace OdeToFood.Pages
     public class IndexModel : PageModel
     {
         private readonly ILogger<IndexModel> _logger;
-       
+        private string myTitle;
+
+
         public IndexModel(ILogger<IndexModel> logger)
         {
             _logger = logger;
         }
 
+        public string MyTitle { get => myTitle; set => myTitle = value; }
+
         public void OnGet()
         {
+            MyTitle = "My custom home page";
 
         }
     }

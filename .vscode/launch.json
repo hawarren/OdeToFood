@@ -30,14 +30,6 @@
             "name": ".NET Core Attach",
             "type": "coreclr",
             "request": "attach"
-        },
-        
-
-    ],
-    "Watch": {
-        "commandName": "Executable",
-        "executablePath": "dotnet.exe",
-        "workingDirectory": "$(ProjectDir)",
-        "commandLineArgs": "watch run"
-      }
+        }
+    ]
 }
