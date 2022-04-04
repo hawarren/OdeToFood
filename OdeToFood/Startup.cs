@@ -10,6 +10,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using OdeToFood.Data;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Http;
 
 namespace OdeToFood
 {
@@ -25,12 +26,13 @@ namespace OdeToFood
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContextPool<OdeToFoodDbContext>(options => {
+            services.AddDbContextPool<OdeToFoodDbContext>(options =>
+            {
                 options.UseSqlServer(Configuration.GetConnectionString("OdeToFoodDb"));
             });
             //services.AddSingleton<IRestaurantData, InMemoryRestaurantData>();
             services.AddScoped<IRestaurantData, SqlRestaurantData>();
-            
+
             services.AddRazorPages();
             services.AddControllers();
         }
@@ -48,22 +50,40 @@ namespace OdeToFood
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+            //example of logging using middleware to add a message in the request pipeline
+            app.Use(SayHelloMiddleWare);
 
             app.UseHttpsRedirection();
-            app.UseStaticFiles();
+            app.UseStaticFiles(new StaticFileOptions { });
 
             app.UseRouting();
 
             app.UseAuthorization();
             app.UseNodeModules(maxAge: TimeSpan.FromSeconds(600));
-            
+
             app.UseCookiePolicy();
+
 
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapRazorPages();
                 endpoints.MapControllers();
             });
+        }
+
+        private RequestDelegate SayHelloMiddleWare(RequestDelegate next)
+        {
+            return async ctx =>
+            {
+                if (ctx.Request.Path.StartsWithSegments("/hello"))
+                {
+                    await ctx.Response.WriteAsync("Test of OdeToFood middleware");
+                }
+                else
+                {
+                    await next(ctx);
+                }
+            };
         }
     }
 }
