@@ -54,7 +54,7 @@ namespace OdeToFood
             app.Use(SayHelloMiddleWare);
 
             app.UseHttpsRedirection();
-            app.UseStaticFiles(new StaticFileOptions { });
+            app.UseStaticFiles();
 
             app.UseRouting();
 

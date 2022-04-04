@@ -9,7 +9,7 @@
             "name": ".NET Core Launch (web)",
             "type": "coreclr",
             "request": "launch",
-            "preLaunchTask": "watch",
+            "preLaunchTask": "build",
             "program": "${workspaceFolder}/OdeToFood/bin/Debug/netcoreapp3.1/OdeToFood.dll",
             "args": [],
             "cwd": "${workspaceFolder}/OdeToFood",
@@ -29,7 +29,8 @@
         {
             "name": ".NET Core Attach",
             "type": "coreclr",
-            "request": "attach"
+            "request": "attach",
+            "port" : 5001
         }
     ]
 }
