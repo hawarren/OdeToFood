@@ -38,3 +38,9 @@ dotnet-aspnet-codegenerator controller -api -name RestaurantsController --model 
  //find then kill pids that are using that port
  lsof -i:[Portnumber]
  kill -9 [PID]
+
+//publish options
+ dotnet publish --help
+
+ //publish to local folder
+ dotnet publish -o /home/hanifw/SourceControl/tempOdeToFood
