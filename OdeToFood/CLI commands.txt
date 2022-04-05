@@ -42,5 +42,7 @@ dotnet-aspnet-codegenerator controller -api -name RestaurantsController --model 
 //publish options
  dotnet publish --help
 
- //publish to local folder
+ //publish to local folder (using runtime on server)
  dotnet publish -o /home/hanifw/SourceControl/tempOdeToFood
+ //publish app with it's own runtime
+ dotnet publish -o ~/SourceControl/tempOdeToFood/  --self-contained -r linux-x64
