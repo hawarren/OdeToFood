@@ -33,7 +33,8 @@ namespace OdeToFood.Pages.Restaurants
         {
 
             logger.LogError("Executing ListModel");
-            Message = config["Message"];
+            //Message = config["Message"];
+            Message = config["customMessage"];
             Restaurants = restaurantData.GetRestaurantsByName(SearchTerm);
         }
     }
