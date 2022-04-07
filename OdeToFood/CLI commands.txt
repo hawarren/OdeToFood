@@ -46,3 +46,9 @@ dotnet-aspnet-codegenerator controller -api -name RestaurantsController --model 
  dotnet publish -o /home/hanifw/SourceControl/tempOdeToFood
  //publish app with it's own runtime
  dotnet publish -o ~/SourceControl/tempOdeToFood/  --self-contained -r linux-x64
+
+
+ //Install on IIS server https://docs.microsoft.com/en-us/aspnet/core/host-and-deploy/iis/?view=aspnetcore-6.0
+ //Ensure ASPNetCoreModule is installed on IIS
+ //add site
+ //bind to port 443, select ssl 
